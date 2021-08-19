@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace App\Domain\Transaction;
 
 use DateTimeInterface;
+use App\Domain\ValueObjects\{
+    Cpf,
+    Card
+};
 
 final class Transaction
 {
