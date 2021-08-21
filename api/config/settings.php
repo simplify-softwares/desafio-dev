@@ -14,6 +14,16 @@ return function (ContainerBuilder $containerBuilder) {
                 'displayErrorDetails' => IS_DEV_ENV === true ? true : false,
                 'logError'            => IS_DEV_ENV === true ? true : false,
                 'logErrorDetails'     => IS_DEV_ENV === true ? true : false,
+                'cnab' => [
+                    'tipo' => ['start' => 1, 'length' => 1],
+                    'data' => ['start' => 2, 'length' => 8],
+                    'valor' => ['start' => 10, 'length' => 10],
+                    'cpf' => ['start' => 20, 'length' => 11],
+                    'cartao' => ['start' => 31, 'length' => 12],
+                    'hora' => ['start' => 43, 'length' => 6],
+                    'dono' => ['start' => 49, 'length' => 14],
+                    'loja' => ['start' => 63, 'length' => 19],
+                ]
             ]);
         }
     ]);

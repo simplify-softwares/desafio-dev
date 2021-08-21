@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\Http\Actions\Transactions\Upload;
 use Slim\App;
 use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface;
@@ -30,9 +31,9 @@ return function (App $app) {
                 ->withHeader('Access-Control-Allow-Origin', '*')
                 ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-        });
+    });
 
-        $app->group('/api', function (RouteCollectorProxy $group) {
+    $app->group('/api', function (RouteCollectorProxy $group) {
         $group->get('/users', AllUsers::class);
 
         $group->get('/gera-jwt', function (ServerRequestInterface $request, ResponseInterface $response, array $args = []): ResponseInterface{
@@ -43,8 +44,8 @@ return function (App $app) {
         });
 
         $group->post('/login', Login::class);
+        $group->post('/transaction', Upload::class);
     });
-
 
     /**
      * Catch-all route to serve a 404 Not Found page if none of the routes match

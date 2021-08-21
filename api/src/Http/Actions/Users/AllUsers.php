@@ -13,13 +13,11 @@ class AllUsers
 {
     use JsonResponse;
 
-    private $container;
     private $em;
     protected $userRepository; 
 
     public function __construct(ContainerInterface $container)
     {
-        $this->container = $container;
         $this->em = $container->get('em');
         $this->userRepository = $container->get(UserRepositoryInterface::class);
         $this->userRepository->setEntityManager($this->em);
@@ -30,7 +28,8 @@ class AllUsers
         $this->em->setEntity(User::class);
         //$rows = $this->em->query("select name, id from users where id = ?", [1]);
         //$rows = $this->em->fetchAll();
-        $rows = $this->userRepository->getUserByEmail('admin@admin.com');
-        return $this->asJson($response, $rows);
+        //$rows = $this->userRepository->getUserByEmail('admin@admin.com');
+        $row = $this->em->fetchOne(1);
+        return $this->asJson($response, $row);
     }
 }

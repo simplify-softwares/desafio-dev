@@ -2,11 +2,13 @@
 
 namespace App\Entities;
 
-use App\Core\Entity\EntityInterface;
+use DateTime;
 use DateTimeInterface;
+use App\Core\Entity\EntityInterface;
 
 class User implements EntityInterface
 {
+    private int $id;
     private string $name;
     private string $username;
     private string $email;
@@ -45,7 +47,6 @@ class User implements EntityInterface
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -69,7 +70,6 @@ class User implements EntityInterface
     public function setUsername(string $username): self
     {
         $this->username = $username;
-
         return $this;
     }
 
@@ -93,7 +93,6 @@ class User implements EntityInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
         return $this;
     }
 
@@ -117,7 +116,6 @@ class User implements EntityInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
         return $this;
     }
 
@@ -141,7 +139,6 @@ class User implements EntityInterface
     public function setAccessToken(string $access_token): self
     {
         $this->access_token = $access_token;
-
         return $this;
     }
 
@@ -164,8 +161,7 @@ class User implements EntityInterface
      */
     public function setCreated(DateTimeInterface $created): self
     {
-        $this->created = $created;
-
+        $this->created = new DateTime($created);
         return $this;
     }
 
@@ -188,8 +184,30 @@ class User implements EntityInterface
      */
     public function setUpdated(DateTimeInterface $updated): self
     {
-        $this->updated = $updated;
+        $this->updated = new DateTime($updated);
+        return $this;
+    }
 
+    /**
+     * Get the value of id
+     *
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @param int $id
+     *
+     * @return self
+     */
+    public function setId(int $id): self
+    {
+        $this->id = $id;
         return $this;
     }
 }

@@ -10,7 +10,6 @@ final class EntityManager
     public function __construct($conn)
     {
         $this->conn = $conn;
-        $this->conn->setFetchMode(ADODB_FETCH_ASSOC);
     }
 
     public function setEntity($entity)
