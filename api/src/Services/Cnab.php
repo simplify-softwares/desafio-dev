@@ -20,8 +20,7 @@ class Cnab
         $settings = $this->container->get(SettingsInterface::class);
         $positions = $settings->get('cnab');
         
-        $file = $data['upload'];
-        $fileName = $file['file']->getFilePath();
+        $fileName = $data['file']->getFilePath();
         $result = [];
 
         foreach ($this->openFile($fileName) as $i => $row) {
