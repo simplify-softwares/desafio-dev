@@ -3,9 +3,10 @@
 namespace App\Repositories;
 
 use App\Core\Entity\EntityManager;
+use App\Repositories\Interfaces\BaseRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 
-class UserRepository implements UserRepositoryInterface
+class UserRepository implements BaseRepositoryInterface, UserRepositoryInterface
 {
     private EntityManager $em;
 

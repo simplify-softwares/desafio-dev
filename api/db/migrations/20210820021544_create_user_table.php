@@ -19,11 +19,11 @@ final class CreateUserTable extends AbstractMigration
             ->addColumn('access_token', 'string', ['limit' => 64])
             ->addColumn('created', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('updated', 'datetime', ['default' => 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'])
-            ->create();
+            ->save();
     }
 
     public function down(): void
     {
-
+        $this->table('users')->drop()->save();
     }
 }
