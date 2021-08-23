@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,400;1,900&display=swap" rel="stylesheet"> 
 
     <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/upload.css">
 
     <title>ByCoders - Importação Arquivo CNAB</title>
 </head>
@@ -27,14 +28,26 @@
                         <a href="upload.html">Enviar arquivo CNAB</a>
                     </li>
                     <li>
-                        <a href="transaction-list.html">Listar Transação</a>
+                        <a href="transaction-list.html">Listar Transações</a>
                     </li>
                     <li>
                         <a href="logout.html" id="link_logout">Sair</a>
                     </li>
                 </ul>
             </nav>
-            <main></main>
+            <main>
+                <div class="title">
+                    <h1>Upload de arquivo CNAB</h1>
+                </div>
+                <form action="" class="form">
+                    <div class="group-fields">
+                        <label for="">Selecione um arquivo CNAB</label>
+                        <input type="file">
+                    </div>
+                    <button class="success">Enviar</button>
+                    <button class="cancel">Voltar</button>
+                </form>
+            </main>
         </section>
         <footer>
             <p>Teste desenvolvido com PHP/Slim e JavaScript para Desenvolvedor PHP na ByCoders</p>
