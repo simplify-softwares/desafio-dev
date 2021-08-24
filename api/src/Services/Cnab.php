@@ -25,7 +25,9 @@ class Cnab
 
         foreach ($this->openFile($fileName) as $i => $row) {
             foreach ($positions as $chave => $valor) {
-                $result[$i][$chave] = trim(substr($row, $valor['start'] - 1, $valor['length']));
+                if (!empty($row)) {
+                    $result[$i][$chave] = trim(substr($row, $valor['start'] - 1, $valor['length']));
+                }
             }
         }
         return $result;

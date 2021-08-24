@@ -5,9 +5,9 @@ namespace App\Repositories;
 use App\Core\Entity\EntityManager;
 use App\Core\Entity\EntityInterface;
 use App\Repositories\Interfaces\BaseRepositoryInterface;
-use App\Repositories\Interfaces\TransactionRepositoryInterface;
+use App\Repositories\Interfaces\TransactionTypeRepositoryInterface;
 
-class TransactionRepository  implements BaseRepositoryInterface, TransactionRepositoryInterface
+class TransactionTypeRepository  implements BaseRepositoryInterface, TransactionTypeRepositoryInterface
 {
     private EntityManager $em;
 
@@ -16,9 +16,9 @@ class TransactionRepository  implements BaseRepositoryInterface, TransactionRepo
         $this->em = $em;
     }
 
-    public function insertTransaction(EntityInterface $entity)
+    public function getByType(int $type)
     {
-        $this->em->setEntity($entity);
-        return $this->em->save($entity);
+        return $this->em->query("select * from transaction_type where type = ?", [$type]);
     }
+    
 }

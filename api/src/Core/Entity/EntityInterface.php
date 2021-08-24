@@ -6,4 +6,5 @@ interface EntityInterface
 {
     public static function tableName(): string;
     public static function primaryKey(): string;
+    public function toArray(): array;
 }

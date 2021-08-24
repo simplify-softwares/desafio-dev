@@ -7,7 +7,7 @@ use App\Core\Entity\EntityInterface;
 use App\Repositories\Interfaces\BaseRepositoryInterface;
 use App\Repositories\Interfaces\StoreRepositoryInterface;
 
-class StoreInterface implements BaseRepositoryInterface, StoreRepositoryInterface
+class StoreRepository implements BaseRepositoryInterface, StoreRepositoryInterface
 {
     private EntityManager $em;
 
@@ -18,8 +18,13 @@ class StoreInterface implements BaseRepositoryInterface, StoreRepositoryInterfac
 
     public function insertStore(EntityInterface $entity)
     {
+        $this->em->setEntity($entity);
         return $this->em->save($entity);
     }
 
-    
+    public function getByStoreName(string $name)
+    {
+        return $this->em->query("select * from store where name = ?", [$name]);
+    }
+
 }

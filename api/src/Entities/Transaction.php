@@ -14,10 +14,11 @@ class Transaction implements EntityInterface
     private string $cpf;
     private string $card;
     private int $store_id;
+    private Store $store;
 
     public static function tableName(): string
     {
-        return 'transaction';
+        return 'store_transaction';
     }
 
     public static function primaryKey(): string
@@ -151,7 +152,7 @@ class Transaction implements EntityInterface
      */
     public function getTransactionDate(): DateTimeInterface
     {
-        return new DateTimeImmutable($this->transaction_date);
+        return $this->transaction_date;
     }
 
     /**
@@ -163,7 +164,42 @@ class Transaction implements EntityInterface
      */
     public function setTransactionDate(DateTimeInterface $transaction_date): self
     {
-        $this->transaction_date = $transaction_date->format("Y-m-d H:i:s");
+        $this->transaction_date = $transaction_date;
         return $this;
+    }
+
+    /**
+     * Get the value of store
+     *
+     * @return Store
+     */
+    public function getStore(): Store
+    {
+        return $this->store;
+    }
+
+    /**
+     * Set the value of store
+     *
+     * @param Store $store
+     *
+     * @return self
+     */
+    public function setStore(Store $store): self
+    {
+        $this->store = $store;
+        return $this;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'type' => $this->getType(),
+            'transaction_date' => $this->getTransactionDate()->format("Y-m-d H:i:s"),
+            'price' => $this->getPrice(),
+            'cpf' => $this->getCpf(),
+            'card' => $this->getCard(),
+            'store_id' => $this->getStore()->getId()
+        ];
     }
 }
