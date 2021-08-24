@@ -13,9 +13,10 @@ final class EntityManager
         $this->conn->setFetchMode(ADODB_FETCH_ASSOC);
     }
 
-    public function setEntity($entity)
+    public function setEntity($entity): self
     {
         $this->entity = $entity;
+        return $this;
     }
 
     public function getConn()

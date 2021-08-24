@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\Http\Actions\Transactions\Retrieve;
 use App\Http\Actions\Transactions\Upload;
 use Slim\App;
 use Firebase\JWT\JWT;
@@ -45,6 +46,9 @@ return function (App $app) {
 
         $group->post('/login', Login::class);
         $group->post('/transaction', Upload::class);
+
+        $group->get('/transaction', Retrieve::class);
+        $group->get('/transaction/store/{store_id}', Retrieve::class);
     });
 
     /**
