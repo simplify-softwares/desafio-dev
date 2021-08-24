@@ -15,8 +15,6 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-use function PHPSTORM_META\type;
-
 final class Upload
 {
     use JsonResponse;
