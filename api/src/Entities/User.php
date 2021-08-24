@@ -210,4 +210,9 @@ class User implements EntityInterface
         $this->id = $id;
         return $this;
     }
+
+    public function toArray(): array
+    {
+        return [];
+    }
 }
