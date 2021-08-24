@@ -4,12 +4,13 @@ namespace App\Core\Entity;
 
 final class EntityManager
 {
-    public $conn;
+    private $conn;
     private $entity;
 
     public function __construct($conn)
     {
         $this->conn = $conn;
+        $this->conn->setFetchMode(ADODB_FETCH_ASSOC);
     }
 
     public function setEntity($entity)
@@ -17,18 +18,23 @@ final class EntityManager
         $this->entity = $entity;
     }
 
+    public function getConn()
+    {
+        return $this->conn;
+    }
+
     public function save(EntityInterface $entity)
     {
-        $dados = $this->objectToArray($entity);
+        $dados = $entity->toArray();
         $table = $this->entity::tableName();
         $sql = $this->conn->getInsertSql($table, $dados);
+
         return $this->conn->execute($sql);
     }
 
     public function update(EntityInterface $entity)
     {
-        $dados = $this->objectToArray($entity);
-
+        $dados = $entity->toArray();
         $recordSet = $this->getOne($entity->{$this->entity::primaryKey()});
         $sql = $this->conn->getUpdateSql($recordSet, $dados);
 
@@ -70,7 +76,12 @@ final class EntityManager
     public function query(string $sql, array $params = [])
     {
         $rows = $this->conn->getAll($sql, $params);
-        return count($rows) > 1 ? $rows : $rows[0];
+
+        if (empty($rows)) {
+            return [];
+        }
+
+        return $rows;
     }
 
     public function execute(string $cmd, array $params = [])

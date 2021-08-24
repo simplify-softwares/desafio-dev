@@ -12,7 +12,7 @@ final class CreateStoreTransactionTable extends AbstractMigration
          */
         $table = $this->table('store_transaction');
         $table->addColumn(  'type', 'integer')
-                ->addColumn('transaction_data', 'datetime')
+                ->addColumn('transaction_date', 'datetime')
                 ->addColumn('price', 'decimal', ['limit' => 10, 'precision' => 2])
                 ->addColumn('cpf', 'string', ['limit' => 11])
                 ->addColumn('card', 'string', ['limit' => 12])

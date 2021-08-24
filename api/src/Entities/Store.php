@@ -6,7 +6,7 @@ use App\Core\Entity\EntityInterface;
 
 class Store implements EntityInterface
 {
-    private int $id;
+    private ?int $id = null;
     private string $owner;
     private string $name;
 
@@ -25,7 +25,7 @@ class Store implements EntityInterface
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -37,7 +37,7 @@ class Store implements EntityInterface
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -88,7 +88,15 @@ class Store implements EntityInterface
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId() ?? null,
+            'owner' => $this->getOwner() ?? null,
+            'name' => $this->getName() ?? null
+        ];
     }
 }
