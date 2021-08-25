@@ -1,8 +1,8 @@
 .idea
 api/vendor
-front/node_modules
+front/spa/node_modules
 .env
 api/.env
-front/.env
+front/spa/.env
 
 skeleton
