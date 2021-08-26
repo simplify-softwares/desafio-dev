@@ -3,15 +3,19 @@ Essa é a documentação do sistema feito para teste para Desenvolvedor na ByCod
 Abaixo, segue manual de instação e uso do sistema.
 
 ## Descrição técnica
+
+### Backend
 Para desenvolvimento da API foi utilizado PHP 7.4 juntamente com Slim Framework na versão 4. Foi utilizado alguns conceitos de SOLID, como SRP, OCP e ISP.
 
-No banco de dados, foi utilizado MySQL (MariaDB).
+No banco de dados, foi utilizado MySQL (MariaDB). Utilizei PHP ADODB para abstrair a conexão do banco e fiz um pequeno ORM com Entity Manager para manipular os repositories.
+
+### Frontend
 
 No front, foi utilizado ReactJS, HTML e CSS puros. Para manutenção do estado foi utilizado ContextAPI e Hooks.
 
 A comunicação entre API e Front se dá através do padrão REST, utilizando JSEND como padrão do formato de retorno da API.
 
-A validação de usuários se dá atráves da troca de token JWT.
+A autenticação do usuários se dá atráves da troca de token JWT.
 
 Em todo o projeto, foi utilizado a segunda lei de Object Calisthenics, "Don’t Use The ELSE Keyword";
 
