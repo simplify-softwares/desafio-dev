@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Context } from "../../Context/AuthContext"
+
 function Menu () {
+    const { handleLogout } = useContext(Context);
+
     return (
         <nav>
             <ul id="main-menu">
@@ -15,7 +19,7 @@ function Menu () {
                     <Link to="/transactions">Listar Transações</Link>
                 </li>
                 <li>
-                    <Link to="/logout" id="link_logout">Sair</Link>
+                    <Link to="" id="link_logout" onClick={handleLogout}>Sair</Link>
                 </li>
             </ul>
         </nav>

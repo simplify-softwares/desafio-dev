@@ -28,6 +28,8 @@ class UserRepository implements BaseRepositoryInterface, UserRepositoryInterface
             $user = $user[0];
             if (password_verify($input['password'], $user['password'])) {
                 unset($user['password']);
+                unset($user['access_token']);
+                
                 return [
                     'status' => 'success',
                     'data' => [
