@@ -78,11 +78,11 @@ final class Upload
             'status' => 'success',
             'data' => [
                 'total' => $i + 1,
-                'title' => "Registros inseridos com sucesso!"
+                'title' => "Registros inseridos com sucesso!",
             ]
-            ];
+        ];
 
-        return $this->asJson($response, ['retorno' => $retorno]);
+        return $this->asJson($response, $retorno);
     }
 
     private function verifyStoreExists(Store $store)

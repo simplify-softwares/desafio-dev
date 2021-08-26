@@ -1,4 +1,10 @@
-import axios from '../../config/axios';
+import axios from '../../config/axios'
 
-export const getAllTransactions = () => axios.get('/transaction');
-export const getAllTransactionsByStore = (store_id) => axios.get(`/transaction/store/${store_id}`);
+export const getAllTransactions = store_id => {
+  let url = '/transaction'
+  if (store_id !== '') {
+    url = `${url}/store/${store_id}`
+  }
+
+  return axios.get(url)
+}
