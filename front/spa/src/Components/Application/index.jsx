@@ -17,7 +17,7 @@ function Application() {
     if (!authenticated) {
         return <Login />;
     }
-
+    
     return (
         <>
         <Header />
