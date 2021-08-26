@@ -3,7 +3,7 @@ Essa é a documentação do sistema feito para teste para Desenvolvedor na ByCod
 Abaixo, segue manual de instação e uso do sistema.
 
 ## Descrição técnica
-ara desenvolvimento da API foi utilizado PHP 7.4 juntamente com Slim Framework na versão 4. Foi utilizado alguns conceitos de SOLID, como SRP, OCP e ISP.
+Para desenvolvimento da API foi utilizado PHP 7.4 juntamente com Slim Framework na versão 4. Foi utilizado alguns conceitos de SOLID, como SRP, OCP e ISP.
 
 No banco de dados, foi utilizado MySQL (MariaDB).
 
