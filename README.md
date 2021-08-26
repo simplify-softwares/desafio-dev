@@ -43,6 +43,8 @@ Esse comando irá entrar dentro da instancia do PHP. Após isso, execute os coma
 
 Assim, irá instalar as dependencias do PHP e irá migrar todas as tabelas e dados necessários para iniciar e testar o projeto.
 
+A _**API**_ irá subir na porta 8080, em localhost.
+
 Para iniciar o front, acesse a pasta _**front/spa**_ e execute:
 
 ```
