@@ -1,3 +1,70 @@
+# Desafio programação - Bycoders
+Essa é a documentação do sistema feito para teste para Desenvolvedor na ByCoders.
+Abaixo, segue manual de instação e uso do sistema.
+
+## Descrição técnica
+ara desenvolvimento da API foi utilizado PHP 7.4 juntamente com Slim Framework na versão 4. Foi utilizado alguns conceitos de SOLID, como SRP, OCP e ISP.
+
+No banco de dados, foi utilizado MySQL (MariaDB).
+
+No front, foi utilizado ReactJS, HTML e CSS puros. Para manutenção do estado foi utilizado ContextAPI e Hooks.
+
+A comunicação entre API e Front se dá através do padrão REST, utilizando JSEND como padrão do formato de retorno da API.
+
+A validação de usuários se dá atráves da troca de token JWT.
+
+Em todo o projeto, foi utilizado a segunda lei de Object Calisthenics, "Don’t Use The ELSE Keyword";
+
+## Instalação
+
+A API e o banco de dados estão utilizando Docker.
+
+Primeiro passo, depois de fazer o clone do projeto, é duplicar e renomear o arquivo _**.env.dist**_ para _**.env**_
+
+Após isso, para subir a instância para rodar o seguinte comando no terminal dentro da pasta _**api**_.
+
+```
+> docker-compose up
+```
+
+Após o download terminar e as instâncias subir, execute no terminal, ainda na pasta _**api**_:
+
+```
+> bin/php
+```
+
+Esse comando irá entrar dentro da instancia do PHP. Após isso, execute os comandos:
+
+```
+> composer install  
+> bin/phinx migrate
+> bin/phinx seed:run
+```
+
+Assim, irá instalar as dependencias do PHP e irá migrar todas as tabelas e dados necessários para iniciar e testar o projeto.
+
+Para iniciar o front, acesse a pasta _**front/spa**_ e execute:
+
+```
+> yarn dev
+```
+
+a aplicação irá subir na porta 3000, em localhost.
+
+Para logar, utilizar os dados abaixo:
+
+```
+username: admin@admin.com
+password: admin
+```
+
+## Documentação da API.
+Dentro da pasta _**./api/docs**_ existe um arquivo chamado _**ByCoders.postman_collection.json**_, que é um arquivo com as rotas utilizadas pelo Postman. Basta importa-lo no Postaman para ter acesso as rotas e parametros da API.
+
+---
+#### Desenvolvido por Gilson Reis - Simplify Softwares
+
+
 # Desafio programação - para vaga desenvolvedor
 
 Por favor leiam este documento do começo ao fim, com muita atenção.

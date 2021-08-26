@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "20a66e43-d8d6-435f-adfc-a8c2758b3c24",
+		"name": "ByCoders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJnaWxzb25jLnJlaXNAZ21haWwuY29tIn0.Vtb4R2spNXqRL8ga7tljKIZMj-3VbfFQAQYixMwlGw8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/gilsonreis/Projetos/bycoders/CNAB.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_api_slim}}/transaction",
+							"host": [
+								"{{base_api_slim}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJnaWxzb25jLnJlaXNAZ21haWwuY29tIn0.Vtb4R2spNXqRL8ga7tljKIZMj-3VbfFQAQYixMwlGw8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_api_slim}}/transaction",
+							"host": [
+								"{{base_api_slim}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve By Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJnaWxzb25jLnJlaXNAZ21haWwuY29tIn0.Vtb4R2spNXqRL8ga7tljKIZMj-3VbfFQAQYixMwlGw8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_api_slim}}/transaction/store/2/teste",
+							"host": [
+								"{{base_api_slim}}"
+							],
+							"path": [
+								"transaction",
+								"store",
+								"2",
+								"teste"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stores",
+			"item": [
+				{
+					"name": "Retrieve All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJnaWxzb25jLnJlaXNAZ21haWwuY29tIn0.Vtb4R2spNXqRL8ga7tljKIZMj-3VbfFQAQYixMwlGw8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_api_slim}}/store",
+							"host": [
+								"{{base_api_slim}}"
+							],
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TransactionType",
+			"item": []
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_api_slim}}/login",
+							"host": [
+								"{{base_api_slim}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
