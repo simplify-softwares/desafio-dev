@@ -1,36 +1,37 @@
-table.table {
+.transaction table.table {
     width: 80%;
     margin: auto;
 }
 
-table.table tr > th, table.table tr > td {
+.transaction table.table tr > th, table.table tr > td {
     padding: 10px;
     text-align: left;
 }
 
-table.table tr > th {
+.transaction table.table tr > th {
     background-color: #ccc;
 }
 
-table.table tr:nth-child(even) {
+.transaction table.table tr:nth-child(even) {
     background-color: #eee;
 }
 
-table.table td.align-right{
+.transaction table.table td.align-right{
     text-align: right;
 }
 
-table.table td.text-total, table.table td.price-total{
+.transaction table.table td.text-total, table.table td.price-total{
     font-weight: bold;
     font-size: 1.5rem;;
 }
 
-form.form {
+.transaction form.form {
     width: 80%;
     margin: 3rem auto 0;
+    text-align: right;
 }
 
-form.form select {
+.transaction form.form select {
     border:1px solid rgb(233, 224, 243);
     padding: 5px;
 }

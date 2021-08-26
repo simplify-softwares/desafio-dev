@@ -1,27 +1,18 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Header from "./Components/Header";
-import Menu from "./Components/Menu";
-import Footer from "./Components/Footer";
-import Routes from './routes'
+import { Router } from 'react-router-dom';
+import Application from './Components/Application'
 
-import "./styles/reset.css";
-import "./styles/main.css";
+import history from './config/history'
 
-const App = () => {
+import { AuthProvider } from "./Context/AuthContext"
+
+function App() {
   return (
-    <BrowserRouter>
-      <div class="container">
-        <Header />
-        <section>
-          <Menu />
-          <main>
-            <Routes />
-          </main>
-        </section>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <Router history={history}>
+          <Application />
+      </Router>
+    </AuthProvider>
   );
 }
 

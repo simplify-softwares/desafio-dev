@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getAllTransactions } from '../../Model/TransactionListModel'
 
 import "../../styles/transaction-list.css";
 
 function TransactionList() {
+
+    const [transactions, setTransactions] = useState();
+
+    useEffect(() => {
+        document.title = 'Listagem de Transações | Bycoders';
+        (async () => {
+            const response = await getAllTransactions();
+            setTransactions(response.data)
+            console.log(transactions);
+        })();      
+    })
+
     return (
-        <>
-            <div class="title">
+        <div className="container transaction">
+            <div className="title">
                     <h1>Listagem das transações</h1>
                 </div>
-                <form action="" class="form">
+                <form action="" className="form">
                     <select name="" id="">
                         <option value="">Selecione uma loja</option>
                     </select>
                 </form>
-                <table class="table">
+                <table className="table">
                     <thead>
                         <caption></caption>
                         <tr>
@@ -65,17 +78,17 @@ function TransactionList() {
                             <td>dafadf</td>
                             <td>fadfad</td>
                             <td>fadfadfa</td>
-                            <td class="align-right">fadfad</td>
+                            <td className="align-right">fadfad</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="4" class="text-total align-right">Total</td>
-                            <td class="price-total align-right">R$ 1132,00</td>
+                            <td colspan="4" className="text-total align-right">Total</td>
+                            <td className="price-total align-right">R$ 1132,00</td>
                         </tr>
                     </tfoot>
                 </table>
-        </>
+        </div>
     );
 }
 
