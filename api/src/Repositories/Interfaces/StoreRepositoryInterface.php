@@ -8,4 +8,5 @@ interface StoreRepositoryInterface
 {
     public function insertStore(EntityInterface $entity);
     public function getByStoreName(string $name);
+    public function getAll();
 }

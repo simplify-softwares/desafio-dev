@@ -27,4 +27,9 @@ class StoreRepository implements BaseRepositoryInterface, StoreRepositoryInterfa
         return $this->em->query("select * from store where name = ?", [$name]);
     }
 
+    public function getAll()
+    {
+        return $this->em->query("select id, owner, name from store order by name asc");
+    }
+
 }
